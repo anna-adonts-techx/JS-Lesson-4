@@ -1,0 +1,368 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* Color and Font Variables */
+:root {
+    --main-text: rgb(44, 51, 69);
+    --secondary-text: rgb(87, 100, 126);
+    --dark-red: rgb(242, 58, 60);
+    --light-red: rgb(255, 237, 237);
+    --dark-blue: rgb(46, 105, 255);
+    --light-blue: rgb(241, 245, 255);
+    --green-color: rgb(24, 189, 91);
+    --table-color: rgb(195, 202, 216);
+    --border-color: #e0e0e0;
+    --font-family: 'Inter', sans-serif;
+}
+
+/* General Body Styles */
+body {
+    font-family: var(--font-family);
+    background-color: #f4f6f8;
+    color: var(--main-text);
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: rgb(241, 245, 255);
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 700px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: var(--main-text);
+}
+
+/* Form Group and Labels */
+.form-group {
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group label[for="first-name"]{
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+}
+
+.form-group label[for="source"] {
+        border-top: 1px solid #eee;
+        padding-top: 30px;  
+}
+
+.form-group span.input-label {
+    padding-bottom: 30px;
+}
+
+.required-star {
+    color: var(--dark-red);
+}
+
+/* Inputs, Select, and Textarea */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    /* border: 1px solid var(--border-color); */
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: var(--font-family);
+    box-sizing: border-box;
+    margin-bottom: 2px;
+    transition: border-color 0.3s;
+    background-color: #fff;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--main-text);
+}
+
+.form-group:focus-within {
+    background-color: var(--light-blue);
+    padding: 10px;
+    margin: -10px;
+    margin-bottom: 20px;
+}
+
+
+/* Input Label (acting as placeholder) */
+.input-label {
+    display: block;
+    font-size: 12px;
+    color: var(--secondary-text);
+    margin-bottom: 8px;
+    margin-top: 2px;
+}
+
+.split-inputs {
+    display: flex;
+    gap: 15px;
+}
+
+.split-inputs .input-wrapper {
+    flex: 1;
+}
+
+/* ---------------------------------------------------------------- */
+/* UPDATED ERROR STYLING TO MATCH IMAGE */
+/* ---------------------------------------------------------------- */
+
+/* Error Message (The red button style) */
+.error-message {
+    display: none; 
+    background-color: var(--dark-red); 
+    color: white; 
+    padding: 6px 10px; 
+    border-radius: 4px;
+    font-size: 13px; 
+    font-weight: 500;
+    
+    /* Align icon and text */
+    align-items: center;
+    gap: 8px; 
+    
+    margin-top: 5px;
+    width: fit-content; 
+}
+
+/* Light Red Background for the whole section/form-group on error */
+.form-group.has-error {
+    background-color: var(--light-red); 
+    padding: 10px;
+    border-radius: 6px;
+    margin: -10px;
+    margin-bottom: 20px;
+}
+
+/* Keep red background even when focusing inside an erroneous group */
+.form-group.has-error:focus-within {
+    background-color: var(--light-red);
+}
+
+/* Show the error button */
+.form-group.has-error .error-message,
+.input-wrapper.has-error .error-message {
+    display: flex; 
+}
+
+/* The white exclamation mark icon inside the red box */
+.form-group.has-error .error-message::before,
+.input-wrapper.has-error .error-message::before {
+    /* Unicode for a small, solid circle exclamation mark */
+    content: "\24D8"; 
+    font-size: 16px; 
+    line-height: 1; 
+    color: white; 
+}
+
+/* Red border for the input fields when in error state */
+.form-group.has-error input,
+.form-group.has-error select,
+.input-wrapper.has-error input {
+    border: 1px solid var(--dark-red);
+}
+/* ---------------------------------------------------------------- */
+/* END OF UPDATED ERROR STYLING */
+/* ---------------------------------------------------------------- */
+
+
+/* Custom Control Styling (Radio Buttons) */
+.custom-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.custom-control {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    padding-left: 30px;
+    height: 20px;
+}
+
+.custom-control input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.control-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 2px solid var(--table-color);
+    border-radius: 4px;
+}
+
+.custom-control:hover .control-indicator {
+    border-color: var(--main-text);
+}
+
+.custom-control input:checked ~ .control-indicator {
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+.control-indicator:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+.custom-control input:checked ~ .control-indicator:after {
+    display: block;
+}
+
+.custom-control .control-indicator:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Table Styling */
+.table-div {
+    width: 100%;
+    margin-top: 20px;
+}
+.table {
+    border: none;
+    width: 100%;
+    height: 100px;
+    border-collapse: collapse;
+}
+
+.table td, th {
+    padding: 3px;
+    border: 1px solid black;
+    font-size: smaller;
+    font-weight: 500;
+}
+
+thead th:first-child{
+    border: none;
+    background: white;
+}
+
+.table-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 12px;
+}
+
+thead tr {
+    background:  rgb(195, 202, 216);
+}
+
+.table-num {
+    width: 50px;
+    background:  rgb(195, 202, 216);
+}
+
+thead {
+ height: 50px;
+}
+
+tbody {
+    height: 100px;
+}
+
+/* Submit Button */
+.submit-btn {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: var(--green-color);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* border-top: 1px solid #eee; */
+    margin-top: 60px;
+}
+
+.submit-btn:hover {
+    background-color: #1a9c58;
+}
+
+/* Success Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.green-checked {
+    justify-content: center;
+    
+}
+.modal-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-content .green-checked {
+    justify-content: center;
+}
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: var(--main-text);
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: var(--secondary-text);
+}
