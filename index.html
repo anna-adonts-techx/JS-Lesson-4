@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details Form</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Customer Details:</h1>
+        <form id="customer-form" novalidate>
+            <div class="form-group">
+                <label for="first-name">Full Name <span class="required-star">*</span></label>
+                <div class="split-inputs">
+                    <div class="input-wrapper">
+                        <input type="text" id="first-name" name="firstName" required>
+                        <span class="input-label">First Name</span>
+                        <small class="error-message"></small>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="last-name" name="lastName" required>
+                        <span class="input-label">Last Name</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="street-address">Address <span class="required-star">*</span></label>
+                <input type="text" id="street-address" name="streetAddress" required>
+                <span class="input-label">Street Address</span>
+                <input type="text" id="street-address-2" name="streetAddress2">
+                <span class="input-label">Street Address Line 2</span>
+                <div class="split-inputs">
+                    <div class="input-wrapper">
+                        <input type="text" id="city" name="city" required>
+                        <span class="input-label">City</span>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="state" name="state" required>
+                        <span class="input-label">State / Province</span>
+                    </div>
+                </div>
+                <input type="text" id="zip-code" name="zipCode" required>
+                <span class="input-label">Postal / Zip Code</span>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number <span class="required-star">*</span></label>
+                <input type="tel" id="phone" name="phone" required placeholder="(000) 000-0000">
+                <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="ex: example@exmple.com">
+                <span class="input-label">example@example.com</span>
+                <small class="error-message"></small>
+            </div>
+            
+            <div class="form-group">
+                <label for="source">How did you hear about us? <span class="required-star">*</span></label>
+                <select id="source" name="source" required>
+                    <option value="">Please Select</option>
+                    <option value="Newspaper">Newspaper</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Magazine">Magazine</option>
+                    <option value="Other">Other</option>
+                </select>
+                <small class="error-message"></small>
+            </div>
+
+            <div class="form-group" id="other-source-group" style="display: none;">
+                <label for="other-source">Please specify: <span class="required-star">*</span></label>
+                <input type="text" id="other-source" name="otherSource">
+                <small class="error-message"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Feedback about us:</label>
+                <textarea id="feedback" name="feedback" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="suggestions">Suggestions if any for further improvement:</label>
+                <textarea id="suggestions" name="suggestions" rows="4"></textarea>
+            </div>
+
+            <!-- <div class="form-group">
+                <label>Will you be willing to recommend us?</label>
+                <div class="custom-control-group">
+                    <label class="custom-control">
+                        <input type="radio" name="recommend" value="Yes">
+                        <span class="control-indicator"></span>
+                        <span class="control-label">Yes</span>
+                    </label>
+                    <label class="custom-control">
+                        <input type="radio" name="recommend" value="Maybe">
+                        <span class="control-indicator"></span>
+                        <span class="control-label">Maybe</span>
+                    </label>
+                    <label class="custom-control">
+                        <input type="radio" name="recommend" value="No">
+                        <span class="control-indicator"></span>
+                        <span class="control-label">No</span>
+                    </label>
+                </div>
+            </div> -->
+
+            <div class="form-group" id="recommend-group"> <label>Will you be willing to recommend us?</label>
+                <div class="custom-control-group">
+                    <label class="custom-control">
+                        <input type="checkbox" name="recommendYes" value="Yes"> <span class="control-indicator"></span>
+                        <span class="control-label">Yes</span>
+                    </label>
+                    <label class="custom-control">
+                        <input type="checkbox" name="recommendMaybe" value="Maybe"> <span class="control-indicator"></span>
+                        <span class="control-label">Maybe</span>
+                    </label>
+                    <label class="custom-control">
+                        <input type="checkbox" name="recommendNo" value="No"> <span class="control-indicator"></span>
+                        <span class="control-label">No</span>
+                    </label>
+                </div>
+            <small class="error-message"></small> </div>
+
+            <div class="input-name">Please give reference of any two people whom you feel:</div>
+            <div class="table-div">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Full Name</th>
+                            <th>Address</th>
+                            <th>Contact Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="table-num">1</td>
+                            <td><input class="table-input" type="text" name="refFullName1"/></td>
+                            <td><input class="table-input" type="text" name="refAddress1"/></td>
+                            <td><input class="table-input" inputmode="numeric" pattern="\d*"  type="tel" name="refContact1"/></td>
+                        </tr>
+                        <tr>
+                            <td class="table-num">2</td>
+                            <td><input class="table-input" type="text" name="refFullName2"/></td>
+                            <td><input class="table-input" type="text" name="refAddress2"/></td>
+                            <td><input class="table-input" inputmode="numeric" pattern="\d*"  type="tel" name="refContact2"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <div id="success-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <img src="checked_50_1_50.svg" alt="checked green" class="green-checked">
+            <h2>Thank You!</h2>
+            <p>Your submission has been received.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
